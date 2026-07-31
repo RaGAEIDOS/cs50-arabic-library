@@ -156,6 +156,12 @@
               <button class="filter-btn" data-filter="summary"><i class="fas fa-file-lines"></i> تلخيص</button>
               <button class="filter-btn" data-filter="link"><i class="fas fa-link"></i> رابط</button>
             </div>
+            <div class="filters diff-filters">
+              <button class="diff-btn active" data-difficulty="all">الكل</button>
+              <button class="diff-btn" data-difficulty="easy"><i class="fas fa-face-smile"></i> سهل</button>
+              <button class="diff-btn" data-difficulty="medium"><i class="fas fa-face-meh"></i> متوسط</button>
+              <button class="diff-btn" data-difficulty="hard"><i class="fas fa-face-flushed"></i> صعب</button>
+            </div>
           </div>
           <div class="grid" id="cs50Grid"></div>
         </section>
@@ -169,6 +175,12 @@
               <button class="filter-btn" data-filter="calculus">تفاضل</button>
               <button class="filter-btn" data-filter="discrete">منفصلة</button>
               <button class="filter-btn" data-filter="linear">خطي</button>
+            </div>
+            <div class="filters diff-filters">
+              <button class="diff-btn active" data-difficulty="all">الكل</button>
+              <button class="diff-btn" data-difficulty="easy"><i class="fas fa-face-smile"></i> سهل</button>
+              <button class="diff-btn" data-difficulty="medium"><i class="fas fa-face-meh"></i> متوسط</button>
+              <button class="diff-btn" data-difficulty="hard"><i class="fas fa-face-flushed"></i> صعب</button>
             </div>
           </div>
           <div class="grid" id="mathGrid"></div>
@@ -184,6 +196,12 @@
               <button class="filter-btn" data-filter="optics">بصريات</button>
               <button class="filter-btn" data-filter="thermo">حرارية</button>
             </div>
+            <div class="filters diff-filters">
+              <button class="diff-btn active" data-difficulty="all">الكل</button>
+              <button class="diff-btn" data-difficulty="easy"><i class="fas fa-face-smile"></i> سهل</button>
+              <button class="diff-btn" data-difficulty="medium"><i class="fas fa-face-meh"></i> متوسط</button>
+              <button class="diff-btn" data-difficulty="hard"><i class="fas fa-face-flushed"></i> صعب</button>
+            </div>
           </div>
           <div class="grid" id="physicsGrid"></div>
         </section>
@@ -195,6 +213,12 @@
               <button class="filter-btn active" data-filter="all">الكل</button>
               <button class="filter-btn" data-filter="organic">عضوية</button>
               <button class="filter-btn" data-filter="inorganic">غير عضوية</button>
+            </div>
+            <div class="filters diff-filters">
+              <button class="diff-btn active" data-difficulty="all">الكل</button>
+              <button class="diff-btn" data-difficulty="easy"><i class="fas fa-face-smile"></i> سهل</button>
+              <button class="diff-btn" data-difficulty="medium"><i class="fas fa-face-meh"></i> متوسط</button>
+              <button class="diff-btn" data-difficulty="hard"><i class="fas fa-face-flushed"></i> صعب</button>
             </div>
           </div>
           <div class="grid" id="chemistryGrid"></div>
@@ -209,6 +233,12 @@
               <button class="filter-btn" data-filter="probability">احتمالات</button>
               <button class="filter-btn" data-filter="inferential">استنتاجي</button>
             </div>
+            <div class="filters diff-filters">
+              <button class="diff-btn active" data-difficulty="all">الكل</button>
+              <button class="diff-btn" data-difficulty="easy"><i class="fas fa-face-smile"></i> سهل</button>
+              <button class="diff-btn" data-difficulty="medium"><i class="fas fa-face-meh"></i> متوسط</button>
+              <button class="diff-btn" data-difficulty="hard"><i class="fas fa-face-flushed"></i> صعب</button>
+            </div>
           </div>
           <div class="grid" id="statisticsGrid"></div>
         </section>
@@ -220,6 +250,12 @@
               <button class="filter-btn active" data-filter="all">الكل</button>
               <button class="filter-btn" data-filter="genetics">وراثة</button>
               <button class="filter-btn" data-filter="cell">خلوية</button>
+            </div>
+            <div class="filters diff-filters">
+              <button class="diff-btn active" data-difficulty="all">الكل</button>
+              <button class="diff-btn" data-difficulty="easy"><i class="fas fa-face-smile"></i> سهل</button>
+              <button class="diff-btn" data-difficulty="medium"><i class="fas fa-face-meh"></i> متوسط</button>
+              <button class="diff-btn" data-difficulty="hard"><i class="fas fa-face-flushed"></i> صعب</button>
             </div>
           </div>
           <div class="grid" id="biologyGrid"></div>
@@ -308,6 +344,15 @@
               <option value="biology">بيولوجيا</option>
             </select>
           </div>
+        </div>
+        <div class="form-group">
+          <label>المستوى</label>
+          <select id="fDifficulty">
+            <option value="">غير محدد</option>
+            <option value="easy">سهل</option>
+            <option value="medium">متوسط</option>
+            <option value="hard">صعب</option>
+          </select>
         </div>
         <button type="submit" class="btn btn-primary btn-full">
           <i class="fas fa-plus"></i> إضافة
