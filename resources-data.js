@@ -31,7 +31,7 @@
   {
     id: 3,
     title: "CS50 بالعربي - نسخة عبدالرحمن جمال",
-    description: "دورة CS50 مترجمة بالعربي由 عبدالرحمن جمال",
+    description: "دورة CS50 مترجمة بالعربي من عبدالرحمن جمال",
     url: "https://www.youtube.com/playlist?list=PLknwEmKsW8OvMsFbU9zo8oJCprAsgc4LO",
     type: "video",
     category: "cs50",
