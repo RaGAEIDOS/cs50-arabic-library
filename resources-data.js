@@ -12,6 +12,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -24,6 +25,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -36,6 +38,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -48,6 +51,7 @@
     subcategory: "scratch",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -60,6 +64,7 @@
     subcategory: "c-language",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -72,6 +77,7 @@
     subcategory: "arrays",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -84,6 +90,7 @@
     subcategory: "algorithms",
     bookmarked: false,
     progress: 0,
+    difficulty: "hard",
     dateAdded: "2024-01-01"
   },
   {
@@ -96,6 +103,7 @@
     subcategory: "memory",
     bookmarked: false,
     progress: 0,
+    difficulty: "hard",
     dateAdded: "2024-01-01"
   },
   {
@@ -108,6 +116,7 @@
     subcategory: "data-structures",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -120,6 +129,7 @@
     subcategory: "python",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -132,6 +142,7 @@
     subcategory: "sql",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -144,6 +155,7 @@
     subcategory: "web",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -156,6 +168,7 @@
     subcategory: "flask",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -168,6 +181,7 @@
     subcategory: "project",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -180,6 +194,7 @@
     subcategory: "notes",
     bookmarked: false,
     progress: 0,
+    difficulty: "hard",
     dateAdded: "2024-01-01"
   },
   {
@@ -192,6 +207,7 @@
     subcategory: "tools",
     bookmarked: false,
     progress: 0,
+    difficulty: "hard",
     dateAdded: "2024-01-01"
   },
   {
@@ -204,6 +220,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -216,6 +233,7 @@
     subcategory: "ai",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -228,6 +246,7 @@
     subcategory: "web",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -240,6 +259,7 @@
     subcategory: "sql",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -252,6 +272,7 @@
     subcategory: "cybersecurity",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -264,6 +285,7 @@
     subcategory: "mobile",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -276,6 +298,7 @@
     subcategory: "books",
     bookmarked: false,
     progress: 0,
+    difficulty: "hard",
     dateAdded: "2024-01-01"
   },
   {
@@ -288,6 +311,7 @@
     subcategory: "tools",
     bookmarked: false,
     progress: 0,
+    difficulty: "hard",
     dateAdded: "2024-01-01"
   },
   {
@@ -300,6 +324,7 @@
     subcategory: "books",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -312,6 +337,7 @@
     subcategory: "web",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -324,6 +350,7 @@
     subcategory: "web",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -336,6 +363,7 @@
     subcategory: "python",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -348,6 +376,7 @@
     subcategory: "c-language",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -360,6 +389,7 @@
     subcategory: "sql",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -372,6 +402,7 @@
     subcategory: "community",
     bookmarked: false,
     progress: 0,
+    difficulty: "hard",
     dateAdded: "2024-01-01"
   },
   {
@@ -384,6 +415,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "hard",
     dateAdded: "2024-01-01"
   },
   {
@@ -396,6 +428,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -408,6 +441,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -420,6 +454,7 @@
     subcategory: "algorithms",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -432,6 +467,7 @@
     subcategory: "books",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -444,6 +480,7 @@
     subcategory: "notes",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -456,6 +493,7 @@
     subcategory: "tools",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -468,6 +506,7 @@
     subcategory: "tools",
     bookmarked: false,
     progress: 0,
+    difficulty: "hard",
     dateAdded: "2024-01-01"
   },
   {
@@ -480,6 +519,7 @@
     subcategory: "notes",
     bookmarked: false,
     progress: 0,
+    difficulty: "hard",
     dateAdded: "2024-01-01"
   },
   {
@@ -492,6 +532,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-07-31"
   },
   {
@@ -504,6 +545,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-07-31"
   },
   {
@@ -516,6 +558,7 @@
     subcategory: "c-language",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-07-31"
   },
   {
@@ -528,6 +571,7 @@
     subcategory: "notes",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-07-31"
   },
   {
@@ -540,6 +584,7 @@
     subcategory: "notes",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-07-31"
   },
 
@@ -556,6 +601,7 @@
     subcategory: "algebra",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -568,6 +614,7 @@
     subcategory: "linear",
     bookmarked: false,
     progress: 0,
+    difficulty: "hard",
     dateAdded: "2024-01-01"
   },
   {
@@ -580,6 +627,7 @@
     subcategory: "calculus",
     bookmarked: false,
     progress: 0,
+    difficulty: "hard",
     dateAdded: "2024-01-01"
   },
   {
@@ -592,6 +640,7 @@
     subcategory: "discrete",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -604,6 +653,7 @@
     subcategory: "probability",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -616,6 +666,7 @@
     subcategory: "discrete",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -628,6 +679,7 @@
     subcategory: "algebra",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -640,6 +692,7 @@
     subcategory: "geometry",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -652,6 +705,7 @@
     subcategory: "number-theory",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -664,6 +718,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "hard",
     dateAdded: "2024-01-01"
   },
   {
@@ -676,6 +731,7 @@
     subcategory: "linear",
     bookmarked: false,
     progress: 0,
+    difficulty: "hard",
     dateAdded: "2024-01-01"
   },
   {
@@ -688,6 +744,7 @@
     subcategory: "trigonometry",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -700,6 +757,7 @@
     subcategory: "calculus",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -712,6 +770,7 @@
     subcategory: "calculus",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -724,6 +783,7 @@
     subcategory: "linear",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -736,6 +796,7 @@
     subcategory: "statistics",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -748,6 +809,7 @@
     subcategory: "history",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -760,6 +822,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "hard",
     dateAdded: "2024-01-01"
   },
   {
@@ -772,6 +835,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "hard",
     dateAdded: "2024-01-01"
   },
   {
@@ -784,6 +848,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -796,6 +861,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -808,6 +874,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -820,6 +887,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -832,6 +900,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -844,6 +913,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -856,6 +926,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "hard",
     dateAdded: "2024-01-01"
   },
   {
@@ -868,6 +939,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "hard",
     dateAdded: "2024-01-01"
   },
   {
@@ -880,6 +952,7 @@
     subcategory: "tools",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -892,6 +965,7 @@
     subcategory: "tools",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -904,6 +978,7 @@
     subcategory: "tools",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -916,6 +991,7 @@
     subcategory: "tools",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
 
@@ -932,6 +1008,7 @@
     subcategory: "mechanics",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -944,6 +1021,7 @@
     subcategory: "mechanics",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -956,6 +1034,7 @@
     subcategory: "electricity",
     bookmarked: false,
     progress: 0,
+    difficulty: "hard",
     dateAdded: "2024-01-01"
   },
   {
@@ -968,6 +1047,7 @@
     subcategory: "thermo",
     bookmarked: false,
     progress: 0,
+    difficulty: "hard",
     dateAdded: "2024-01-01"
   },
   {
@@ -980,6 +1060,7 @@
     subcategory: "optics",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -992,6 +1073,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -1004,6 +1086,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -1016,6 +1099,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -1028,6 +1112,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -1040,6 +1125,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -1052,6 +1138,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "hard",
     dateAdded: "2024-01-01"
   },
   {
@@ -1064,6 +1151,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "hard",
     dateAdded: "2024-01-01"
   },
   {
@@ -1076,6 +1164,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -1088,6 +1177,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -1100,6 +1190,7 @@
     subcategory: "tools",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -1112,6 +1203,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -1124,6 +1216,7 @@
     subcategory: "electricity",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -1136,6 +1229,7 @@
     subcategory: "quantum",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -1148,6 +1242,7 @@
     subcategory: "relativity",
     bookmarked: false,
     progress: 0,
+    difficulty: "hard",
     dateAdded: "2024-01-01"
   },
   {
@@ -1160,6 +1255,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "hard",
     dateAdded: "2024-01-01"
   },
   {
@@ -1172,6 +1268,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -1184,6 +1281,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -1196,6 +1294,7 @@
     subcategory: "tools",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -1208,6 +1307,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -1220,6 +1320,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
 
@@ -1236,6 +1337,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -1248,6 +1350,7 @@
     subcategory: "organic",
     bookmarked: false,
     progress: 0,
+    difficulty: "hard",
     dateAdded: "2024-01-01"
   },
   {
@@ -1260,6 +1363,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "hard",
     dateAdded: "2024-01-01"
   },
   {
@@ -1272,6 +1376,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -1284,6 +1389,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -1296,6 +1402,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -1308,6 +1415,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -1320,6 +1428,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -1332,6 +1441,7 @@
     subcategory: "tools",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -1344,6 +1454,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "hard",
     dateAdded: "2024-01-01"
   },
   {
@@ -1356,6 +1467,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "hard",
     dateAdded: "2024-01-01"
   },
   {
@@ -1368,6 +1480,7 @@
     subcategory: "tools",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -1380,6 +1493,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -1392,6 +1506,7 @@
     subcategory: "biochemistry",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -1404,6 +1519,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -1416,6 +1532,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -1428,6 +1545,7 @@
     subcategory: "organic",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -1440,6 +1558,7 @@
     subcategory: "inorganic",
     bookmarked: false,
     progress: 0,
+    difficulty: "hard",
     dateAdded: "2024-01-01"
   },
   {
@@ -1452,6 +1571,7 @@
     subcategory: "physical",
     bookmarked: false,
     progress: 0,
+    difficulty: "hard",
     dateAdded: "2024-01-01"
   },
   {
@@ -1464,6 +1584,7 @@
     subcategory: "tools",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -1476,6 +1597,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -1488,6 +1610,7 @@
     subcategory: "tools",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -1500,6 +1623,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -1512,6 +1636,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -1524,6 +1649,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
 
@@ -1540,6 +1666,7 @@
     subcategory: "descriptive",
     bookmarked: false,
     progress: 0,
+    difficulty: "hard",
     dateAdded: "2024-01-01"
   },
   {
@@ -1552,6 +1679,7 @@
     subcategory: "inferential",
     bookmarked: false,
     progress: 0,
+    difficulty: "hard",
     dateAdded: "2024-01-01"
   },
   {
@@ -1564,6 +1692,7 @@
     subcategory: "probability",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -1576,6 +1705,7 @@
     subcategory: "descriptive",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -1588,6 +1718,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -1600,6 +1731,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -1612,6 +1744,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -1624,6 +1757,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -1636,6 +1770,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "hard",
     dateAdded: "2024-01-01"
   },
   {
@@ -1648,6 +1783,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "hard",
     dateAdded: "2024-01-01"
   },
   {
@@ -1660,6 +1796,7 @@
     subcategory: "programming",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -1672,6 +1809,7 @@
     subcategory: "programming",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -1684,6 +1822,7 @@
     subcategory: "tools",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -1696,6 +1835,7 @@
     subcategory: "tools",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -1708,6 +1848,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -1720,6 +1861,7 @@
     subcategory: "descriptive",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -1732,6 +1874,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "hard",
     dateAdded: "2024-01-01"
   },
   {
@@ -1744,6 +1887,7 @@
     subcategory: "probability",
     bookmarked: false,
     progress: 0,
+    difficulty: "hard",
     dateAdded: "2024-01-01"
   },
   {
@@ -1756,6 +1900,7 @@
     subcategory: "inferential",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -1768,6 +1913,7 @@
     subcategory: "inferential",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -1780,6 +1926,7 @@
     subcategory: "data-science",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -1792,6 +1939,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -1804,6 +1952,7 @@
     subcategory: "probability",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -1816,6 +1965,7 @@
     subcategory: "tools",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -1828,6 +1978,7 @@
     subcategory: "programming",
     bookmarked: false,
     progress: 0,
+    difficulty: "hard",
     dateAdded: "2024-01-01"
   },
 
@@ -1844,6 +1995,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "hard",
     dateAdded: "2024-01-01"
   },
   {
@@ -1856,6 +2008,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -1868,6 +2021,7 @@
     subcategory: "genetics",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -1880,6 +2034,7 @@
     subcategory: "cell",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -1892,6 +2047,7 @@
     subcategory: "bioinformatics",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -1904,6 +2060,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -1916,6 +2073,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -1928,6 +2086,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "hard",
     dateAdded: "2024-01-01"
   },
   {
@@ -1940,6 +2099,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "hard",
     dateAdded: "2024-01-01"
   },
   {
@@ -1952,6 +2112,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -1964,6 +2125,7 @@
     subcategory: "cell",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -1976,6 +2138,7 @@
     subcategory: "genetics",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -1988,6 +2151,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -2000,6 +2164,7 @@
     subcategory: "tools",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -2012,6 +2177,7 @@
     subcategory: "evolution",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -2024,6 +2190,7 @@
     subcategory: "human",
     bookmarked: false,
     progress: 0,
+    difficulty: "hard",
     dateAdded: "2024-01-01"
   },
   {
@@ -2036,6 +2203,7 @@
     subcategory: "ecology",
     bookmarked: false,
     progress: 0,
+    difficulty: "hard",
     dateAdded: "2024-01-01"
   },
   {
@@ -2048,6 +2216,7 @@
     subcategory: "molecular",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -2060,6 +2229,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -2072,6 +2242,7 @@
     subcategory: "neuroscience",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -2084,6 +2255,7 @@
     subcategory: "microbiology",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -2096,6 +2268,7 @@
     subcategory: "ethics",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -2108,6 +2281,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -2120,6 +2294,7 @@
     subcategory: "genetics",
     bookmarked: false,
     progress: 0,
+    difficulty: "hard",
     dateAdded: "2024-01-01"
   },
   {
@@ -2132,6 +2307,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "hard",
     dateAdded: "2024-01-01"
   },
 
@@ -2148,6 +2324,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -2160,6 +2337,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -2172,6 +2350,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -2184,6 +2363,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -2196,6 +2376,7 @@
     subcategory: "web",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -2208,6 +2389,7 @@
     subcategory: "web",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -2220,6 +2402,7 @@
     subcategory: "general",
     bookmarked: false,
     progress: 0,
+    difficulty: "hard",
     dateAdded: "2024-01-01"
   },
   {
@@ -2232,6 +2415,7 @@
     subcategory: "algorithms",
     bookmarked: false,
     progress: 0,
+    difficulty: "hard",
     dateAdded: "2024-01-01"
   },
   {
@@ -2244,6 +2428,7 @@
     subcategory: "algorithms",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -2256,6 +2441,7 @@
     subcategory: "tools",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -2268,6 +2454,7 @@
     subcategory: "tools",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -2280,6 +2467,7 @@
     subcategory: "tools",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -2292,6 +2480,7 @@
     subcategory: "community",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -2304,6 +2493,7 @@
     subcategory: "community",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -2316,6 +2506,7 @@
     subcategory: "community",
     bookmarked: false,
     progress: 0,
+    difficulty: "hard",
     dateAdded: "2024-01-01"
   },
   {
@@ -2328,6 +2519,7 @@
     subcategory: "books",
     bookmarked: false,
     progress: 0,
+    difficulty: "hard",
     dateAdded: "2024-01-01"
   },
   {
@@ -2340,6 +2532,7 @@
     subcategory: "books",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -2352,6 +2545,7 @@
     subcategory: "books",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -2364,6 +2558,7 @@
     subcategory: "books",
     bookmarked: false,
     progress: 0,
+    difficulty: "easy",
     dateAdded: "2024-01-01"
   },
   {
@@ -2376,6 +2571,7 @@
     subcategory: "books",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   },
   {
@@ -2388,6 +2584,7 @@
     subcategory: "books",
     bookmarked: false,
     progress: 0,
+    difficulty: "medium",
     dateAdded: "2024-01-01"
   }
 ];
