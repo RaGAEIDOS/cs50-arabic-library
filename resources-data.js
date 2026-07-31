@@ -1,4 +1,4 @@
-const defaultResources = [
+﻿const defaultResources = [
   // ============================================
   // CS-50 RESOURCES (40+ resources)
   // ============================================
@@ -481,6 +481,66 @@ const defaultResources = [
     bookmarked: false,
     progress: 0,
     dateAdded: "2024-01-01"
+  },
+  {
+    id: 41,
+    title: "أساسيات البرمجة - البيانات والمعلومات والمعرفة",
+    description: "كتاب PDF يشرح الفرق بين البيانات والمعلومات والمعرفة والحكمة في علوم الحاسوب",
+    url: "pdfs/01-Programming-Foundations-Data-vs-Information.pdf",
+    type: "book",
+    category: "cs50",
+    subcategory: "general",
+    bookmarked: false,
+    progress: 0,
+    dateAdded: "2024-07-31"
+  },
+  {
+    id: 42,
+    title: "أساسيات البرمجة - ما هو الحاسوب",
+    description: "عرض PowerPoint يشرح مفهوم الحاسوب وأنواعه وتكوينه - للمبتدئين",
+    url: "pdfs/02-Programming-Foundations-What-is-Computer.pdf",
+    type: "summary",
+    category: "cs50",
+    subcategory: "general",
+    bookmarked: false,
+    progress: 0,
+    dateAdded: "2024-07-31"
+  },
+  {
+    id: 43,
+    title: "دورة C++ بالعربي - المهندس خالد",
+    description: "كتاب شامل لتعلم لغة C++ بالعربية مع أمثلة عملية - للمبتدئين",
+    url: "pdfs/CPlusPlus-Arabic-Eng-Khaled.pdf",
+    type: "book",
+    category: "cs50",
+    subcategory: "c-language",
+    bookmarked: false,
+    progress: 0,
+    dateAdded: "2024-07-31"
+  },
+  {
+    id: 44,
+    title: "ملخص مقرر البرمجة - ملف تعليمي",
+    description: "ملخص شامل لمقرر البرمجة الأساسية مع تمارين وتطبيقات",
+    url: "pdfs/Programming-Notes-File002.pdf",
+    type: "summary",
+    category: "cs50",
+    subcategory: "notes",
+    bookmarked: false,
+    progress: 0,
+    dateAdded: "2024-07-31"
+  },
+  {
+    id: 45,
+    title: "مجموعة دروس البرمجة - المهندس خالد",
+    description: "مجموعة شاملة من دروس وتمارين البرمجة الأساسية",
+    url: "pdfs/Programming-Combine-Eng-Khaled.pdf",
+    type: "exercise",
+    category: "cs50",
+    subcategory: "notes",
+    bookmarked: false,
+    progress: 0,
+    dateAdded: "2024-07-31"
   },
 
   // ============================================
@@ -2402,3 +2462,4 @@ const subcategoryNames = {
   microbiology: "دقيقة",
   ethics: "أخلاق"
 };
+
