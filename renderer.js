@@ -30,8 +30,11 @@ const typeIcons = {
   video: 'fa-play', book: 'fa-book', summary: 'fa-file-lines',
   exercise: 'fa-list-check', link: 'fa-arrow-up-right-from-square', pdf: 'fa-file-pdf'
 };
+const diffLabels = { easy: 'سهل', medium: 'متوسط', hard: 'صعب' };
+const diffIcons = { easy: 'fa-face-smile', medium: 'fa-face-meh', hard: 'fa-face-flushed' };
 
 let lib = { resources: [], bookmarks: [], progress: {} };
+const activeFilters = {};
 
 document.addEventListener('DOMContentLoaded', () => {
   loadData();
@@ -89,7 +92,20 @@ function initEvents() {
       btn.parentElement.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       const sectionId = btn.closest('.section').id;
-      applyFilter(sectionId, btn.dataset.filter);
+      if (!activeFilters[sectionId]) activeFilters[sectionId] = {};
+      activeFilters[sectionId].type = btn.dataset.filter;
+      applyAllFilters(sectionId);
+    });
+  });
+
+  document.querySelectorAll('.diff-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      btn.parentElement.querySelectorAll('.diff-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const sectionId = btn.closest('.section').id;
+      if (!activeFilters[sectionId]) activeFilters[sectionId] = {};
+      activeFilters[sectionId].difficulty = btn.dataset.difficulty;
+      applyAllFilters(sectionId);
     });
   });
 
@@ -167,13 +183,15 @@ function renderGrid(containerId, items) {
 
 function cardHTML(r) {
   const bm = lib.bookmarks.includes(r.id);
+  const diffBadge = r.difficulty ? `<span class="diff-badge diff-${r.difficulty}"><i class="fas ${diffIcons[r.difficulty]}"></i> ${diffLabels[r.difficulty]}</span>` : '';
   return `
-    <div class="card" data-id="${r.id}" data-type="${r.type}">
+    <div class="card" data-id="${r.id}" data-type="${r.type}" data-difficulty="${r.difficulty || ''}">
       <div class="card-top">
         <span class="card-badge ${typeBadges[r.type] || 'badge-link'}">
           <i class="fas ${typeIcons[r.type] || 'fa-link'}"></i>
           ${typeLabels[r.type] || r.type}
         </span>
+        ${diffBadge}
         <button class="card-bookmark ${bm ? 'active' : ''}" data-id="${r.id}">
           <i class="fas fa-bookmark"></i>
         </button>
@@ -224,6 +242,8 @@ function showDetail(id) {
   if (!r) return;
   document.getElementById('detailTitle').innerHTML = `<i class="fas fa-info-circle"></i> ${r.title}`;
 
+  const diffText = r.difficulty ? `<div class="detail-section"><h4><i class="fas fa-signal"></i> المستوى</h4><p><span class="diff-badge diff-${r.difficulty}"><i class="fas ${diffIcons[r.difficulty]}"></i> ${diffLabels[r.difficulty]}</span></p></div>` : '';
+
   let html = `
     <div class="detail-section">
       <h4><i class="fas fa-align-right"></i> الوصف</h4>
@@ -236,7 +256,8 @@ function showDetail(id) {
     <div class="detail-section">
       <h4><i class="fas fa-folder"></i> القسم</h4>
       <p>${catNames[r.category] || r.category}</p>
-    </div>`;
+    </div>
+    ${diffText}`;
 
   if (r.url) {
     html += `
@@ -263,6 +284,7 @@ function addResource() {
   const url = document.getElementById('fUrl').value.trim();
   const type = document.getElementById('fType').value;
   const cat = document.getElementById('fCat').value;
+  const diff = document.getElementById('fDifficulty') ? document.getElementById('fDifficulty').value : '';
 
   if (!title) return;
 
@@ -274,6 +296,7 @@ function addResource() {
     type,
     category: cat,
     subcategory: '',
+    difficulty: diff,
     progress: 0,
     bookmarked: false
   });
@@ -314,12 +337,17 @@ window._updateProgress = function(id) {
   toast('تم تحديث التقدم');
 };
 
-function applyFilter(sectionId, filter) {
+function applyAllFilters(sectionId) {
+  const f = activeFilters[sectionId] || {};
+  const typeFilter = f.type || 'all';
+  const diffFilter = f.difficulty || 'all';
   const gridId = sectionId + 'Grid';
   const el = document.getElementById(gridId);
   if (!el) return;
   el.querySelectorAll('.card').forEach(c => {
-    c.style.display = (filter === 'all' || c.dataset.type === filter) ? '' : 'none';
+    const matchType = typeFilter === 'all' || c.dataset.type === typeFilter;
+    const matchDiff = diffFilter === 'all' || c.dataset.difficulty === diffFilter;
+    c.style.display = (matchType && matchDiff) ? '' : 'none';
   });
 }
 
