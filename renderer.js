@@ -1,502 +1,384 @@
-﻿let libraryData = {
-  resources: [],
-  bookmarks: [],
-  progress: {},
-  settings: {
-    autoSave: true,
-    autoSaveInterval: 30
-  }
+﻿const catNames = {
+  cs50: 'CS-50', math: 'الرياضيات', physics: 'الفيزياء',
+  chemistry: 'الكيمياء', statistics: 'الإحصاء', biology: 'البيولوجيا'
+};
+const catCountIds = {
+  cs50: 'cs50Count', math: 'mathCount', physics: 'physicsCount',
+  chemistry: 'chemistryCount', statistics: 'statisticsCount', biology: 'biologyCount'
+};
+const catGridIds = {
+  cs50: 'cs50Grid', math: 'mathGrid', physics: 'physicsGrid',
+  chemistry: 'chemistryGrid', statistics: 'statisticsGrid', biology: 'biologyGrid'
+};
+const catBarIds = {
+  cs50: 'cs50Bar', math: 'mathBar', physics: 'physicsBar',
+  chemistry: 'chemistryBar', statistics: 'statisticsBar', biology: 'biologyBar'
+};
+const catPctIds = {
+  cs50: 'cs50Pct', math: 'mathPct', physics: 'physicsPct',
+  chemistry: 'chemistryPct', statistics: 'statisticsPct', biology: 'biologyPct'
+};
+const typeLabels = {
+  video: 'فيديو', book: 'كتاب', summary: 'تلخيص',
+  exercise: 'تمرين', link: 'رابط', pdf: 'PDF'
+};
+const typeBadges = {
+  video: 'badge-video', book: 'badge-book', summary: 'badge-summary',
+  exercise: 'badge-exercise', link: 'badge-link', pdf: 'badge-book'
+};
+const typeIcons = {
+  video: 'fa-play', book: 'fa-book', summary: 'fa-file-lines',
+  exercise: 'fa-list-check', link: 'fa-arrow-up-right-from-square', pdf: 'fa-file-pdf'
 };
 
-let autoSaveTimer = null;
+let lib = { resources: [], bookmarks: [], progress: {} };
 
-// Initialize the app
-document.addEventListener('DOMContentLoaded', async () => {
-  await loadData();
-  initializeEventListeners();
-  renderAllSections();
+document.addEventListener('DOMContentLoaded', () => {
+  loadData();
+  initEvents();
+  renderAll();
   updateStats();
-  startAutoSave();
+  renderRecent();
 });
 
-// Load data from localStorage
-async function loadData() {
+function loadData() {
   try {
-    const savedData = localStorage.getItem('cs50LibraryData');
-    if (savedData) {
-      libraryData = JSON.parse(savedData);
+    const saved = localStorage.getItem('cs50LibraryData');
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      lib.resources = parsed.resources || [...defaultResources];
+      lib.bookmarks = parsed.bookmarks || [];
+      lib.progress = parsed.progress || {};
     } else {
-      libraryData.resources = [...defaultResources];
+      lib.resources = [...defaultResources];
     }
-  } catch (error) {
-    console.error('Error loading data:', error);
-    libraryData.resources = [...defaultResources];
+  } catch {
+    lib.resources = [...defaultResources];
   }
 }
 
-// Save data to localStorage
-async function saveData() {
+function save() {
   try {
-    localStorage.setItem('cs50LibraryData', JSON.stringify(libraryData));
-    showSaveNotification();
-  } catch (error) {
-    console.error('Error saving data:', error);
+    localStorage.setItem('cs50LibraryData', JSON.stringify(lib));
+    toast('تم الحفظ');
+  } catch (e) {
+    console.error('Save error:', e);
   }
 }
 
-// Start auto-save timer
-function startAutoSave() {
-  if (autoSaveTimer) {
-    clearInterval(autoSaveTimer);
-  }
-  if (libraryData.settings.autoSave) {
-    autoSaveTimer = setInterval(saveData, libraryData.settings.autoSaveInterval * 1000);
-  }
+function toast(msg) {
+  const t = document.getElementById('toast');
+  document.getElementById('toastMsg').textContent = msg || 'تم الحفظ';
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
 }
 
-// Show toast notification
-function showToast(message = 'تم الحفظ بنجاح') {
-  const toast = document.getElementById('toast');
-  toast.querySelector('span').textContent = message;
-  toast.classList.add('show');
-  setTimeout(() => {
-    toast.classList.remove('show');
-  }, 3000);
-}
-
-// Show save notification
-function showSaveNotification() {
-  const indicator = document.querySelector('.save-dot');
-  indicator.style.background = '#10b981';
-  indicator.style.boxShadow = '0 0 12px #10b981';
-  setTimeout(() => {
-    indicator.style.background = '#10b981';
-    indicator.style.boxShadow = '0 0 8px #10b981';
-  }, 1000);
-}
-
-// Navigate to section
-function navigateToSection(sectionId) {
-  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-  const navBtn = document.querySelector(`.nav-btn[data-section="${sectionId}"]`);
-  if (navBtn) navBtn.classList.add('active');
-  
-  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-  const section = document.getElementById(sectionId);
-  if (section) section.classList.add('active');
-  
-  if (sectionId === 'bookmarks') {
-    renderBookmarks();
-  } else if (sectionId === 'progress') {
-    updateProgressDashboard();
-  }
-}
-
-// Initialize event listeners
-function initializeEventListeners() {
-  // Navigation - Sidebar
-  document.querySelectorAll('.nav-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      navigateToSection(btn.dataset.section);
-    });
+function initEvents() {
+  document.querySelectorAll('.nav-item').forEach(btn => {
+    btn.addEventListener('click', () => goTo(btn.dataset.section));
   });
 
-  // Quick access cards
   document.querySelectorAll('.quick-card').forEach(card => {
-    card.addEventListener('click', () => {
-      navigateToSection(card.dataset.section);
-    });
+    card.addEventListener('click', () => goTo(card.dataset.section));
   });
 
-  // Search
-  document.getElementById('searchInput').addEventListener('input', (e) => {
-    searchResources(e.target.value);
-  });
+  document.getElementById('searchInput').addEventListener('input', e => search(e.target.value));
 
-  // Filter buttons
   document.querySelectorAll('.filter-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      const parent = btn.parentElement;
-      parent.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.parentElement.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      
-      const section = btn.closest('.section');
-      const sectionId = section.id;
-      const filter = btn.dataset.filter;
-      
-      filterResources(sectionId, filter);
+      const sectionId = btn.closest('.section').id;
+      applyFilter(sectionId, btn.dataset.filter);
     });
   });
 
-  // Add resource modal
-  document.getElementById('addResourceBtn').addEventListener('click', () => {
-    document.getElementById('addResourceModal').classList.add('active');
+  document.getElementById('addBtn').addEventListener('click', () => {
+    document.getElementById('addModal').classList.add('active');
   });
 
-  document.getElementById('closeModal').addEventListener('click', () => {
-    document.getElementById('addResourceModal').classList.remove('active');
-  });
-
-  // Detail modal
-  document.getElementById('closeDetail').addEventListener('click', () => {
-    document.getElementById('resourceDetailModal').classList.remove('active');
-  });
-
-  // Resource form
-  document.getElementById('resourceForm').addEventListener('submit', (e) => {
+  document.getElementById('addForm').addEventListener('submit', e => {
     e.preventDefault();
-    addNewResource();
+    addResource();
   });
 
-  // Close modals on overlay click
-  document.querySelectorAll('.modal-overlay').forEach(overlay => {
-    overlay.addEventListener('click', () => {
-      overlay.closest('.modal').classList.remove('active');
+  document.querySelectorAll('[data-close]').forEach(el => {
+    el.addEventListener('click', () => {
+      el.closest('.modal').classList.remove('active');
     });
   });
 
-  // Close modals on Escape key
-  document.addEventListener('keydown', (e) => {
+  document.addEventListener('keydown', e => {
     if (e.key === 'Escape') {
-      document.querySelectorAll('.modal.active').forEach(modal => {
-        modal.classList.remove('active');
-      });
+      document.querySelectorAll('.modal.active').forEach(m => m.classList.remove('active'));
     }
   });
+
+  const menuToggle = document.getElementById('menuToggle');
+  const sidebar = document.getElementById('sidebar');
+  if (menuToggle) {
+    menuToggle.addEventListener('click', () => sidebar.classList.toggle('open'));
+  }
 }
 
-// Render all sections
-function renderAllSections() {
-  renderResources('cs50Resources', libraryData.resources.filter(r => r.category === 'cs50'));
-  renderResources('mathResources', libraryData.resources.filter(r => r.category === 'math'));
-  renderResources('physicsResources', libraryData.resources.filter(r => r.category === 'physics'));
-  renderResources('chemistryResources', libraryData.resources.filter(r => r.category === 'chemistry'));
-  renderResources('statisticsResources', libraryData.resources.filter(r => r.category === 'statistics'));
-  renderResources('biologyResources', libraryData.resources.filter(r => r.category === 'biology'));
-  renderRecentResources();
-  updateQuickAccessCounts();
+function goTo(id) {
+  document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
+  const navBtn = document.querySelector(`.nav-item[data-section="${id}"]`);
+  if (navBtn) navBtn.classList.add('active');
+
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  const sec = document.getElementById(id);
+  if (sec) sec.classList.add('active');
+
+  document.getElementById('sidebar').classList.remove('open');
+
+  if (id === 'bookmarks') renderBookmarks();
+  if (id === 'progress') renderProgress();
 }
 
-// Render resources to a grid
-function renderResources(containerId, resources) {
-  const container = document.getElementById(containerId);
-  if (!container) return;
-  
-  container.innerHTML = resources.map(resource => createResourceCard(resource)).join('');
-  
-  // Add event listeners to cards
-  container.querySelectorAll('.resource-card').forEach(card => {
-    card.addEventListener('click', (e) => {
-      if (!e.target.closest('.bookmark-btn')) {
-        showResourceDetail(parseInt(card.dataset.id));
-      }
+function renderAll() {
+  Object.keys(catGridIds).forEach(cat => {
+    const items = lib.resources.filter(r => r.category === cat);
+    renderGrid(catGridIds[cat], items);
+  });
+  updateCounts();
+}
+
+function renderGrid(containerId, items) {
+  const el = document.getElementById(containerId);
+  if (!el) return;
+  if (!items.length) {
+    el.innerHTML = '<div class="empty"><i class="fas fa-folder-open"></i><p>لا توجد موارد</p></div>';
+    return;
+  }
+  el.innerHTML = items.map(r => cardHTML(r)).join('');
+  el.querySelectorAll('.card').forEach(c => {
+    c.addEventListener('click', e => {
+      if (!e.target.closest('.card-bookmark')) showDetail(+c.dataset.id);
     });
   });
-  
-  // Add bookmark listeners
-  container.querySelectorAll('.bookmark-btn').forEach(btn => {
-    btn.addEventListener('click', (e) => {
+  el.querySelectorAll('.card-bookmark').forEach(btn => {
+    btn.addEventListener('click', e => {
       e.stopPropagation();
-      toggleBookmark(parseInt(btn.dataset.id));
+      toggleBookmark(+btn.dataset.id);
     });
   });
 }
 
-// Create resource card HTML
-function createResourceCard(resource) {
-  const isBookmarked = libraryData.bookmarks.includes(resource.id);
-  const typeIcons = {
-    video: 'fa-play',
-    book: 'fa-book',
-    summary: 'fa-file-alt',
-    exercise: 'fa-tasks',
-    link: 'fa-external-link-alt'
-  };
-  
+function cardHTML(r) {
+  const bm = lib.bookmarks.includes(r.id);
   return `
-    <div class="resource-card" data-id="${resource.id}" data-category="${resource.category}" data-type="${resource.type}">
-      <div class="resource-card-header">
-        <span class="resource-type ${resource.type}">
-          <i class="fas ${typeIcons[resource.type] || 'fa-link'}"></i>
-          ${getTypeName(resource.type)}
+    <div class="card" data-id="${r.id}" data-type="${r.type}">
+      <div class="card-top">
+        <span class="card-badge ${typeBadges[r.type] || 'badge-link'}">
+          <i class="fas ${typeIcons[r.type] || 'fa-link'}"></i>
+          ${typeLabels[r.type] || r.type}
         </span>
-        <button class="bookmark-btn ${isBookmarked ? 'bookmarked' : ''}" data-id="${resource.id}">
+        <button class="card-bookmark ${bm ? 'active' : ''}" data-id="${r.id}">
           <i class="fas fa-bookmark"></i>
         </button>
       </div>
-      <h4>${resource.title}</h4>
-      <p>${resource.description}</p>
-      <div class="resource-meta">
-        <span class="resource-category">${categoryNames[resource.category] || resource.category}</span>
-        <span>${resource.subcategory ? subcategoryNames[resource.subcategory] || resource.subcategory : ''}</span>
+      <h4>${r.title}</h4>
+      <p>${r.description || ''}</p>
+      <div class="card-meta">
+        <span>${catNames[r.category] || r.category}</span>
+        <span>${r.subcategory || ''}</span>
       </div>
-    </div>
-  `;
+    </div>`;
 }
 
-// Get type name in Arabic
-function getTypeName(type) {
-  const types = {
-    video: 'فيديو',
-    book: 'كتاب',
-    summary: 'تلخيص',
-    exercise: 'تمرين',
-    link: 'رابط'
-  };
-  return types[type] || type;
+function renderRecent() {
+  const recent = lib.resources.slice(-6).reverse();
+  renderGrid('recentGrid', recent);
 }
 
-// Render recent resources
-function renderRecentResources() {
-  const recent = libraryData.resources.slice(-6).reverse();
-  const container = document.getElementById('recentResources');
-  if (container) {
-    container.innerHTML = recent.map(resource => createResourceCard(resource)).join('');
-  }
-}
-
-// Render bookmarks
 function renderBookmarks() {
-  const bookmarkedResources = libraryData.resources.filter(r => libraryData.bookmarks.includes(r.id));
-  const container = document.getElementById('bookmarkedResources');
-  const emptyState = document.getElementById('emptyBookmarks');
-  
-  if (bookmarkedResources.length === 0) {
-    container.innerHTML = '';
-    emptyState.style.display = 'block';
+  const items = lib.resources.filter(r => lib.bookmarks.includes(r.id));
+  const grid = document.getElementById('bookmarksGrid');
+  const empty = document.getElementById('emptyBookmarks');
+  if (items.length === 0) {
+    grid.innerHTML = '';
+    empty.style.display = 'block';
   } else {
-    emptyState.style.display = 'none';
-    renderResources('bookmarkedResources', bookmarkedResources);
+    empty.style.display = 'none';
+    renderGrid('bookmarksGrid', items);
   }
 }
 
-// Toggle bookmark
 function toggleBookmark(id) {
-  const index = libraryData.bookmarks.indexOf(id);
-  if (index > -1) {
-    libraryData.bookmarks.splice(index, 1);
-    showToast('تم إزالة المورد من المفضلة');
+  const i = lib.bookmarks.indexOf(id);
+  if (i > -1) {
+    lib.bookmarks.splice(i, 1);
+    toast('تمت الإزالة من المفضلة');
   } else {
-    libraryData.bookmarks.push(id);
-    showToast('تم إضافة المورد للمفضلة');
+    lib.bookmarks.push(id);
+    toast('تمت الإضافة للمفضلة');
   }
-  
-  const resource = libraryData.resources.find(r => r.id === id);
-  if (resource) {
-    resource.bookmarked = libraryData.bookmarks.includes(id);
-  }
-  
-  saveData();
-  renderAllSections();
+  save();
+  renderAll();
   updateStats();
 }
 
-// Show resource detail
-function showResourceDetail(id) {
-  const resource = libraryData.resources.find(r => r.id === id);
-  if (!resource) return;
-  
-  document.getElementById('detailTitle').innerHTML = `<i class="fas fa-info-circle"></i> ${resource.title}`;
-  
-  let content = `
+function showDetail(id) {
+  const r = lib.resources.find(x => x.id === id);
+  if (!r) return;
+  document.getElementById('detailTitle').innerHTML = `<i class="fas fa-info-circle"></i> ${r.title}`;
+
+  let html = `
     <div class="detail-section">
       <h4><i class="fas fa-align-right"></i> الوصف</h4>
-      <p>${resource.description}</p>
+      <p>${r.description || 'لا يوجد وصف'}</p>
     </div>
-    
     <div class="detail-section">
       <h4><i class="fas fa-tag"></i> النوع</h4>
-      <p>${getTypeName(resource.type)}</p>
+      <p>${typeLabels[r.type] || r.type}</p>
     </div>
-    
     <div class="detail-section">
       <h4><i class="fas fa-folder"></i> القسم</h4>
-      <p>${categoryNames[resource.category]} - ${subcategoryNames[resource.subcategory] || resource.subcategory}</p>
-    </div>
-  `;
-  
-  if (resource.url) {
-    content += `
-      <div class="detail-section">
-        <h4><i class="fas fa-link"></i> الرابط</h4>
-        <p><a href="${resource.url}" target="_blank">${resource.url}</a></p>
-      </div>
-    `;
+      <p>${catNames[r.category] || r.category}</p>
+    </div>`;
+
+  if (r.url) {
+    html += `
+    <div class="detail-section">
+      <h4><i class="fas fa-link"></i> الرابط</h4>
+      <p><a href="${r.url}" target="_blank">${r.url}</a></p>
+    </div>`;
   }
-  
-  content += `
+
+  html += `
     <div class="detail-actions">
-      ${resource.url ? `<a href="${resource.url}" target="_blank" class="action-btn primary"><i class="fas fa-external-link-alt"></i> فتح الرابط</a>` : ''}
-      <button class="action-btn primary" onclick="updateResourceProgress(${resource.id})"><i class="fas fa-chart-line"></i> تحديث التقدم</button>
-      <button class="action-btn" style="background: var(--danger); color: white;" onclick="deleteResource(${resource.id})"><i class="fas fa-trash"></i> حذف</button>
-    </div>
-  `;
-  
-  document.getElementById('detailContent').innerHTML = content;
-  document.getElementById('resourceDetailModal').classList.add('active');
+      ${r.url ? `<a href="${r.url}" target="_blank" class="btn btn-primary"><i class="fas fa-arrow-up-right-from-square"></i> فتح الرابط</a>` : ''}
+      <button class="btn btn-primary" onclick="window._updateProgress(${r.id})"><i class="fas fa-chart-line"></i> تحديث التقدم</button>
+      <button class="btn" style="background:var(--red);color:#fff" onclick="window._deleteRes(${r.id})"><i class="fas fa-trash"></i> حذف</button>
+    </div>`;
+
+  document.getElementById('detailBody').innerHTML = html;
+  document.getElementById('detailModal').classList.add('active');
 }
 
-// Add new resource
-function addNewResource() {
-  const title = document.getElementById('resourceTitle').value;
-  const description = document.getElementById('resourceDescription').value;
-  const url = document.getElementById('resourceUrl').value;
-  const type = document.getElementById('resourceType').value;
-  const category = document.getElementById('resourceCategory').value;
-  const subcategory = document.getElementById('resourceSubcategory').value;
-  
-  const newResource = {
+function addResource() {
+  const title = document.getElementById('fTitle').value.trim();
+  const desc = document.getElementById('fDesc').value.trim();
+  const url = document.getElementById('fUrl').value.trim();
+  const type = document.getElementById('fType').value;
+  const cat = document.getElementById('fCat').value;
+
+  if (!title) return;
+
+  lib.resources.push({
     id: Date.now(),
     title,
-    description,
+    description: desc,
     url,
     type,
-    category,
-    subcategory,
-    bookmarked: false,
+    category: cat,
+    subcategory: '',
     progress: 0,
-    dateAdded: new Date().toISOString().split('T')[0]
-  };
-  
-  libraryData.resources.push(newResource);
-  saveData();
-  renderAllSections();
+    bookmarked: false
+  });
+
+  save();
+  renderAll();
   updateStats();
-  
-  // Reset form
-  document.getElementById('resourceForm').reset();
-  document.getElementById('addResourceModal').classList.remove('active');
-  showToast('تم إضافة المورد بنجاح');
+  renderRecent();
+  document.getElementById('addForm').reset();
+  document.getElementById('addModal').classList.remove('active');
+  toast('تمت إضافة المورد');
 }
 
-// Delete resource
-function deleteResource(id) {
-  if (confirm('هل أنت متأكد من حذف هذا المورد؟')) {
-    libraryData.resources = libraryData.resources.filter(r => r.id !== id);
-    libraryData.bookmarks = libraryData.bookmarks.filter(b => b !== id);
-    delete libraryData.progress[id];
-    
-    saveData();
-    renderAllSections();
-    updateStats();
-    document.getElementById('resourceDetailModal').classList.remove('active');
-    showToast('تم حذف المورد بنجاح');
-  }
-}
+window._deleteRes = function(id) {
+  if (!confirm('هل أنت متأكد من حذف هذا المورد؟')) return;
+  lib.resources = lib.resources.filter(r => r.id !== id);
+  lib.bookmarks = lib.bookmarks.filter(b => b !== id);
+  delete lib.progress[id];
+  save();
+  renderAll();
+  updateStats();
+  renderRecent();
+  document.getElementById('detailModal').classList.remove('active');
+  toast('تم الحذف');
+};
 
-// Update resource progress
-function updateResourceProgress(id) {
-  const resource = libraryData.resources.find(r => r.id === id);
-  if (!resource) return;
-  
-  const newProgress = prompt(`التقدم الحالي: ${resource.progress}%\nأدخل التقدم الجديد (0-100):`, resource.progress);
-  
-  if (newProgress !== null) {
-    const progress = Math.min(100, Math.max(0, parseInt(newProgress) || 0));
-    resource.progress = progress;
-    libraryData.progress[id] = progress;
-    
-    saveData();
-    renderAllSections();
-    updateStats();
-    showToast('تم تحديث التقدم بنجاح');
-  }
-}
+window._updateProgress = function(id) {
+  const r = lib.resources.find(x => x.id === id);
+  if (!r) return;
+  const val = prompt(`التقدم الحالي: ${r.progress}%\nأدخل التقدم الجديد (0-100):`, r.progress);
+  if (val === null) return;
+  const p = Math.min(100, Math.max(0, parseInt(val) || 0));
+  r.progress = p;
+  lib.progress[id] = p;
+  save();
+  renderAll();
+  updateStats();
+  toast('تم تحديث التقدم');
+};
 
-// Filter resources
-function filterResources(sectionId, filter) {
-  const container = document.getElementById(sectionId + 'Resources');
-  if (!container) return;
-  
-  const cards = container.querySelectorAll('.resource-card');
-  cards.forEach(card => {
-    if (filter === 'all' || card.dataset.type === filter) {
-      card.style.display = 'block';
-    } else {
-      card.style.display = 'none';
-    }
+function applyFilter(sectionId, filter) {
+  const gridId = sectionId + 'Grid';
+  const el = document.getElementById(gridId);
+  if (!el) return;
+  el.querySelectorAll('.card').forEach(c => {
+    c.style.display = (filter === 'all' || c.dataset.type === filter) ? '' : 'none';
   });
 }
 
-// Search resources
-function searchResources(query) {
-  if (!query) {
-    renderAllSections();
-    return;
-  }
-  
-  query = query.toLowerCase();
-  const results = libraryData.resources.filter(r => 
-    r.title.toLowerCase().includes(query) ||
-    r.description.toLowerCase().includes(query) ||
-    (categoryNames[r.category] || '').includes(query) ||
-    (subcategoryNames[r.subcategory] || '').includes(query)
+function search(q) {
+  if (!q.trim()) { renderAll(); return; }
+  q = q.toLowerCase();
+  const results = lib.resources.filter(r =>
+    r.title.toLowerCase().includes(q) ||
+    (r.description || '').toLowerCase().includes(q) ||
+    (catNames[r.category] || '').includes(q) ||
+    (r.subcategory || '').toLowerCase().includes(q)
   );
-  
-  // Show results in all sections
-  renderResources('cs50Resources', results.filter(r => r.category === 'cs50'));
-  renderResources('mathResources', results.filter(r => r.category === 'math'));
-  renderResources('physicsResources', results.filter(r => r.category === 'physics'));
-  renderResources('chemistryResources', results.filter(r => r.category === 'chemistry'));
-  renderResources('statisticsResources', results.filter(r => r.category === 'statistics'));
-  renderResources('biologyResources', results.filter(r => r.category === 'biology'));
+  Object.keys(catGridIds).forEach(cat => {
+    renderGrid(catGridIds[cat], results.filter(r => r.category === cat));
+  });
 }
 
-// Update statistics
 function updateStats() {
-  document.getElementById('totalResources').textContent = libraryData.resources.length;
-  document.getElementById('bookmarkedCount').textContent = libraryData.bookmarks.length;
+  const totalEl = document.getElementById('totalCount');
+  const bmEl = document.getElementById('bookmarkCount');
+  if (totalEl) totalEl.textContent = lib.resources.length;
+  if (bmEl) bmEl.textContent = lib.bookmarks.length;
 }
 
-// Update quick access counts
-function updateQuickAccessCounts() {
-  const categories = ['cs50', 'math', 'physics', 'chemistry', 'statistics', 'biology'];
-  const quickCards = document.querySelectorAll('.quick-card');
-  
-  quickCards.forEach((card, index) => {
-    if (categories[index]) {
-      const count = libraryData.resources.filter(r => r.category === categories[index]).length;
-      card.querySelector('small').textContent = `${count} مورد`;
+function updateCounts() {
+  Object.entries(catCountIds).forEach(([cat, elId]) => {
+    const el = document.getElementById(elId);
+    if (el) {
+      const count = lib.resources.filter(r => r.category === cat).length;
+      el.textContent = count + ' مورد';
     }
   });
 }
 
-// Update progress dashboard
-function updateProgressDashboard() {
-  const categories = ['cs50', 'math', 'physics', 'chemistry', 'statistics', 'biology'];
-  const progressIds = ['cs50Progress', 'mathProgress', 'physicsProgress', 'chemistryProgress', 'statsProgress', 'bioProgress'];
-  const textIds = ['cs50ProgressText', 'mathProgressText', 'physicsProgressText', 'chemistryProgressText', 'statsProgressText', 'bioProgressText'];
-  
-  let totalCompleted = 0;
-  let totalResources = 0;
-  
-  categories.forEach((cat, index) => {
-    const resources = libraryData.resources.filter(r => r.category === cat);
-    const completed = resources.filter(r => r.progress >= 100).length;
-    const percentage = resources.length > 0 ? Math.round((completed / resources.length) * 100) : 0;
-    
-    totalCompleted += completed;
-    totalResources += resources.length;
-    
-    document.getElementById(progressIds[index]).style.width = percentage + '%';
-    document.getElementById(textIds[index]).textContent = percentage + '%';
+function renderProgress() {
+  let totalDone = 0, totalRes = 0;
+  const cats = Object.keys(catBarIds);
+
+  cats.forEach(cat => {
+    const res = lib.resources.filter(r => r.category === cat);
+    const done = res.filter(r => (r.progress || 0) >= 100).length;
+    const pct = res.length > 0 ? Math.round((done / res.length) * 100) : 0;
+    totalDone += done;
+    totalRes += res.length;
+
+    const bar = document.getElementById(catBarIds[cat]);
+    const txt = document.getElementById(catPctIds[cat]);
+    if (bar) bar.style.width = pct + '%';
+    if (txt) txt.textContent = pct + '%';
   });
-  
-  // Update main progress ring
-  const mainPercentage = totalResources > 0 ? Math.round((totalCompleted / totalResources) * 100) : 0;
-  document.getElementById('mainProgressPercent').textContent = mainPercentage + '%';
-  
-  // Update SVG circle
-  const circle = document.getElementById('mainProgressCircle');
+
+  const mainPct = totalRes > 0 ? Math.round((totalDone / totalRes) * 100) : 0;
+  const pctEl = document.getElementById('mainPct');
+  if (pctEl) pctEl.textContent = mainPct + '%';
+
+  const circle = document.getElementById('mainCircle');
   if (circle) {
-    const circumference = 2 * Math.PI * 85;
-    const offset = circumference - (mainPercentage / 100) * circumference;
-    circle.style.strokeDasharray = circumference;
-    circle.style.strokeDashoffset = offset;
+    const circ = 2 * Math.PI * 85;
+    circle.style.strokeDasharray = circ;
+    circle.style.strokeDashoffset = circ - (mainPct / 100) * circ;
   }
 }
-
-// Make functions available globally
-window.updateResourceProgress = updateResourceProgress;
-window.deleteResource = deleteResource;
-
