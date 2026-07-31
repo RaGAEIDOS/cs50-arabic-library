@@ -402,6 +402,13 @@ a:hover { color: var(--gold-bright); }
 
 .filters { display: flex; gap: 6px; flex-wrap: wrap; }
 
+.section-filters {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-end;
+}
+
 .filter-btn {
   padding: 6px 14px;
   border: 1px solid var(--border);
