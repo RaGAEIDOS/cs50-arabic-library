@@ -1,4 +1,4 @@
-let libraryData = {
+﻿let libraryData = {
   resources: [],
   bookmarks: [],
   progress: {},
@@ -499,3 +499,4 @@ function updateProgressDashboard() {
 // Make functions available globally
 window.updateResourceProgress = updateResourceProgress;
 window.deleteResource = deleteResource;
+
