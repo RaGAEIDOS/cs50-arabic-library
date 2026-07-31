@@ -3,223 +3,181 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>مكتبة CS-50 بالعربية</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>CS-50 بالعربية | المكتبة الأكاديمية</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Noto+Kufi+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
 </head>
 <body>
-  <div class="app-container">
-    <!-- Animated Background -->
-    <div class="bg-animation">
-      <div class="bg-orb bg-orb-1"></div>
-      <div class="bg-orb bg-orb-2"></div>
-      <div class="bg-orb bg-orb-3"></div>
-    </div>
-
-    <!-- Sidebar -->
-    <aside class="sidebar">
-      <div class="logo">
-        <div class="logo-icon">
-          <i class="fas fa-graduation-cap"></i>
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <i class="fas fa-book-open"></i>
         </div>
-        <h1>CS-50</h1>
-        <span>المكتبة العربية</span>
+        <h1 class="logo-text">CS-50</h1>
+        <span class="logo-sub">المكتبة الأكاديمية</span>
       </div>
-      
-      <nav class="nav-menu">
-        <button class="nav-btn active" data-section="home">
-          <i class="fas fa-home"></i>
+
+      <nav class="nav">
+        <button class="nav-item active" data-section="home">
+          <i class="fas fa-compass"></i>
           <span>الرئيسية</span>
         </button>
-        <button class="nav-btn" data-section="cs50">
+        <button class="nav-item" data-section="cs50">
           <i class="fas fa-laptop-code"></i>
           <span>CS-50</span>
         </button>
-        <button class="nav-btn" data-section="math">
+        <button class="nav-item" data-section="math">
           <i class="fas fa-square-root-variable"></i>
           <span>الرياضيات</span>
         </button>
-        <button class="nav-btn" data-section="physics">
+        <button class="nav-item" data-section="physics">
           <i class="fas fa-atom"></i>
           <span>الفيزياء</span>
         </button>
-        <button class="nav-btn" data-section="chemistry">
+        <button class="nav-item" data-section="chemistry">
           <i class="fas fa-flask"></i>
           <span>الكيمياء</span>
         </button>
-        <button class="nav-btn" data-section="statistics">
+        <button class="nav-item" data-section="statistics">
           <i class="fas fa-chart-pie"></i>
           <span>الإحصاء</span>
         </button>
-        <button class="nav-btn" data-section="biology">
+        <button class="nav-item" data-section="biology">
           <i class="fas fa-dna"></i>
           <span>البيولوجيا</span>
         </button>
-        
         <div class="nav-divider"></div>
-        
-        <button class="nav-btn" data-section="bookmarks">
+        <button class="nav-item" data-section="bookmarks">
           <i class="fas fa-bookmark"></i>
           <span>المفضلة</span>
         </button>
-        <button class="nav-btn" data-section="progress">
+        <button class="nav-item" data-section="progress">
           <i class="fas fa-chart-line"></i>
           <span>التقدم</span>
         </button>
       </nav>
 
       <div class="sidebar-footer">
-        <div class="auto-save-indicator">
+        <div class="save-indicator">
           <span class="save-dot"></span>
           <span>حفظ تلقائي</span>
         </div>
       </div>
     </aside>
 
-    <!-- Main Content -->
-    <main class="main-content">
-      <!-- Header -->
+    <main class="main">
       <header class="header">
-        <div class="search-box">
-          <i class="fas fa-search search-icon"></i>
+        <button class="menu-toggle" id="menuToggle">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="search">
+          <i class="fas fa-search"></i>
           <input type="text" id="searchInput" placeholder="ابحث في الموارد...">
         </div>
-        <div class="header-actions">
-          <button class="action-btn primary" id="addResourceBtn">
-            <i class="fas fa-plus"></i>
-            <span>إضافة مورد</span>
-          </button>
-          <button class="action-btn icon-only" id="settingsBtn">
-            <i class="fas fa-cog"></i>
-          </button>
-        </div>
+        <button class="btn btn-primary" id="addBtn">
+          <i class="fas fa-plus"></i>
+          <span>إضافة مورد</span>
+        </button>
       </header>
 
-      <!-- Content Sections -->
-      <div class="content-area" id="contentArea">
-        <!-- Home Section -->
+      <div class="content" id="content">
         <section class="section active" id="home">
-          <div class="welcome-banner">
-            <div class="welcome-content">
-              <h2>مرحباً بك في مكتبة CS-50</h2>
-              <p>منصة تعليمية شاملة لتعلم علوم الحاسوب والمواد الأساسية</p>
-              <div class="welcome-stats">
-                <div class="welcome-stat">
-                  <i class="fas fa-book-open"></i>
-                  <span id="totalResources">0</span>
-                  <label>مورد</label>
+          <div class="hero">
+            <div class="hero-text">
+              <h2>مكتبتك الأكاديمية الشاملة</h2>
+              <p>أكثر من 200 مورد تعليمي في علوم الحاسوب والرياضيات والفيزياء والكيمياء والإحصاء والبيولوجيا</p>
+              <div class="stats-row">
+                <div class="stat">
+                  <span class="stat-num" id="totalCount">0</span>
+                  <span class="stat-label">مورد</span>
                 </div>
-                <div class="welcome-stat">
-                  <i class="fas fa-star"></i>
-                  <span id="bookmarkedCount">0</span>
-                  <label>محفوظ</label>
+                <div class="stat">
+                  <span class="stat-num" id="bookmarkCount">0</span>
+                  <span class="stat-label">محفوظ</span>
                 </div>
               </div>
             </div>
-            <div class="welcome-illustration">
-              <i class="fas fa-graduation-cap"></i>
-            </div>
           </div>
 
-          <div class="quick-access">
+          <div class="section-title">
             <h3><i class="fas fa-bolt"></i> الوصول السريع</h3>
-            <div class="quick-grid">
-              <button class="quick-card" data-section="cs50">
-                <div class="quick-icon" style="background: linear-gradient(135deg, #667eea, #764ba2);">
-                  <i class="fas fa-laptop-code"></i>
-                </div>
-                <span>CS-50</span>
-                <small>15 مورد</small>
-              </button>
-              <button class="quick-card" data-section="math">
-                <div class="quick-icon" style="background: linear-gradient(135deg, #f093fb, #f5576c);">
-                  <i class="fas fa-square-root-variable"></i>
-                </div>
-                <span>الرياضيات</span>
-                <small>9 موارد</small>
-              </button>
-              <button class="quick-card" data-section="physics">
-                <div class="quick-icon" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">
-                  <i class="fas fa-atom"></i>
-                </div>
-                <span>الفيزياء</span>
-                <small>6 موارد</small>
-              </button>
-              <button class="quick-card" data-section="chemistry">
-                <div class="quick-icon" style="background: linear-gradient(135deg, #43e97b, #38f9d7);">
-                  <i class="fas fa-flask"></i>
-                </div>
-                <span>الكيمياء</span>
-                <small>4 موارد</small>
-              </button>
-              <button class="quick-card" data-section="statistics">
-                <div class="quick-icon" style="background: linear-gradient(135deg, #fa709a, #fee140);">
-                  <i class="fas fa-chart-pie"></i>
-                </div>
-                <span>الإحصاء</span>
-                <small>4 موارد</small>
-              </button>
-              <button class="quick-card" data-section="biology">
-                <div class="quick-icon" style="background: linear-gradient(135deg, #a8edea, #fed6e3);">
-                  <i class="fas fa-dna"></i>
-                </div>
-                <span>البيولوجيا</span>
-                <small>5 موارد</small>
-              </button>
-            </div>
+          </div>
+          <div class="quick-grid">
+            <button class="quick-card" data-section="cs50">
+              <div class="quick-icon"><i class="fas fa-laptop-code"></i></div>
+              <span>CS-50</span>
+              <small id="cs50Count">0 مورد</small>
+            </button>
+            <button class="quick-card" data-section="math">
+              <div class="quick-icon"><i class="fas fa-square-root-variable"></i></div>
+              <span>الرياضيات</span>
+              <small id="mathCount">0 مورد</small>
+            </button>
+            <button class="quick-card" data-section="physics">
+              <div class="quick-icon"><i class="fas fa-atom"></i></div>
+              <span>الفيزياء</span>
+              <small id="physicsCount">0 مورد</small>
+            </button>
+            <button class="quick-card" data-section="chemistry">
+              <div class="quick-icon"><i class="fas fa-flask"></i></div>
+              <span>الكيمياء</span>
+              <small id="chemistryCount">0 مورد</small>
+            </button>
+            <button class="quick-card" data-section="statistics">
+              <div class="quick-icon"><i class="fas fa-chart-pie"></i></div>
+              <span>الإحصاء</span>
+              <small id="statisticsCount">0 مورد</small>
+            </button>
+            <button class="quick-card" data-section="biology">
+              <div class="quick-icon"><i class="fas fa-dna"></i></div>
+              <span>البيولوجيا</span>
+              <small id="biologyCount">0 مورد</small>
+            </button>
           </div>
 
-          <div class="recent-section">
-            <h3><i class="fas fa-clock"></i> أحدث الموارد</h3>
-            <div class="resources-grid" id="recentResources"></div>
+          <div class="section-title">
+            <h3><i class="fas fa-clock-rotate-left"></i> أحدث الموارد</h3>
           </div>
+          <div class="grid" id="recentGrid"></div>
         </section>
 
-        <!-- CS50 Section -->
         <section class="section" id="cs50">
           <div class="section-header">
-            <div class="section-title">
-              <i class="fas fa-laptop-code"></i>
-              <h2>مواد CS-50</h2>
-            </div>
-            <div class="filter-tabs">
+            <h2><i class="fas fa-laptop-code"></i> مواد CS-50</h2>
+            <div class="filters">
               <button class="filter-btn active" data-filter="all">الكل</button>
-              <button class="filter-btn" data-filter="video"><i class="fas fa-play"></i> فيديوهات</button>
-              <button class="filter-btn" data-filter="book"><i class="fas fa-book"></i> كتب</button>
-              <button class="filter-btn" data-filter="summary"><i class="fas fa-file-alt"></i> تلخيصات</button>
-              <button class="filter-btn" data-filter="exercise"><i class="fas fa-tasks"></i> تمارين</button>
+              <button class="filter-btn" data-filter="video"><i class="fas fa-play"></i> فيديو</button>
+              <button class="filter-btn" data-filter="book"><i class="fas fa-book"></i> كتاب</button>
+              <button class="filter-btn" data-filter="summary"><i class="fas fa-file-lines"></i> تلخيص</button>
+              <button class="filter-btn" data-filter="link"><i class="fas fa-link"></i> رابط</button>
             </div>
           </div>
-          <div class="resources-grid" id="cs50Resources"></div>
+          <div class="grid" id="cs50Grid"></div>
         </section>
 
-        <!-- Math Section -->
         <section class="section" id="math">
           <div class="section-header">
-            <div class="section-title">
-              <i class="fas fa-square-root-variable"></i>
-              <h2>الرياضيات للبرمجة</h2>
-            </div>
-            <div class="filter-tabs">
+            <h2><i class="fas fa-square-root-variable"></i> الرياضيات</h2>
+            <div class="filters">
               <button class="filter-btn active" data-filter="all">الكل</button>
               <button class="filter-btn" data-filter="algebra">جبر</button>
-              <button class="filter-btn" data-filter="calculus">تفاضل وتكامل</button>
+              <button class="filter-btn" data-filter="calculus">تفاضل</button>
               <button class="filter-btn" data-filter="discrete">منفصلة</button>
-              <button class="filter-btn" data-filter="linear">جبر خطي</button>
+              <button class="filter-btn" data-filter="linear">خطي</button>
             </div>
           </div>
-          <div class="resources-grid" id="mathResources"></div>
+          <div class="grid" id="mathGrid"></div>
         </section>
 
-        <!-- Physics Section -->
         <section class="section" id="physics">
           <div class="section-header">
-            <div class="section-title">
-              <i class="fas fa-atom"></i>
-              <h2>الفيزياء</h2>
-            </div>
-            <div class="filter-tabs">
+            <h2><i class="fas fa-atom"></i> الفيزياء</h2>
+            <div class="filters">
               <button class="filter-btn active" data-filter="all">الكل</button>
               <button class="filter-btn" data-filter="mechanics">ميكانيكا</button>
               <button class="filter-btn" data-filter="electricity">كهرباء</button>
@@ -227,165 +185,79 @@
               <button class="filter-btn" data-filter="thermo">حرارية</button>
             </div>
           </div>
-          <div class="resources-grid" id="physicsResources"></div>
+          <div class="grid" id="physicsGrid"></div>
         </section>
 
-        <!-- Chemistry Section -->
         <section class="section" id="chemistry">
           <div class="section-header">
-            <div class="section-title">
-              <i class="fas fa-flask"></i>
-              <h2>الكيمياء</h2>
-            </div>
-            <div class="filter-tabs">
+            <h2><i class="fas fa-flask"></i> الكيمياء</h2>
+            <div class="filters">
               <button class="filter-btn active" data-filter="all">الكل</button>
-              <button class="filter-btn" data-filter="general">عامة</button>
               <button class="filter-btn" data-filter="organic">عضوية</button>
               <button class="filter-btn" data-filter="inorganic">غير عضوية</button>
             </div>
           </div>
-          <div class="resources-grid" id="chemistryResources"></div>
+          <div class="grid" id="chemistryGrid"></div>
         </section>
 
-        <!-- Statistics Section -->
         <section class="section" id="statistics">
           <div class="section-header">
-            <div class="section-title">
-              <i class="fas fa-chart-pie"></i>
-              <h2>علم الإحصاء</h2>
-            </div>
-            <div class="filter-tabs">
+            <h2><i class="fas fa-chart-pie"></i> الإحصاء</h2>
+            <div class="filters">
               <button class="filter-btn active" data-filter="all">الكل</button>
               <button class="filter-btn" data-filter="descriptive">وصفي</button>
               <button class="filter-btn" data-filter="probability">احتمالات</button>
               <button class="filter-btn" data-filter="inferential">استنتاجي</button>
             </div>
           </div>
-          <div class="resources-grid" id="statisticsResources"></div>
+          <div class="grid" id="statisticsGrid"></div>
         </section>
 
-        <!-- Biology Section -->
         <section class="section" id="biology">
           <div class="section-header">
-            <div class="section-title">
-              <i class="fas fa-dna"></i>
-              <h2>علم الأحياء</h2>
-            </div>
-            <div class="filter-tabs">
+            <h2><i class="fas fa-dna"></i> البيولوجيا</h2>
+            <div class="filters">
               <button class="filter-btn active" data-filter="all">الكل</button>
-              <button class="filter-btn" data-filter="general">عامة</button>
               <button class="filter-btn" data-filter="genetics">وراثة</button>
               <button class="filter-btn" data-filter="cell">خلوية</button>
             </div>
           </div>
-          <div class="resources-grid" id="biologyResources"></div>
+          <div class="grid" id="biologyGrid"></div>
         </section>
 
-        <!-- Bookmarks Section -->
         <section class="section" id="bookmarks">
           <div class="section-header">
-            <div class="section-title">
-              <i class="fas fa-bookmark"></i>
-              <h2>المفضلة</h2>
-            </div>
+            <h2><i class="fas fa-bookmark"></i> المفضلة</h2>
           </div>
-          <div class="resources-grid" id="bookmarkedResources"></div>
-          <div class="empty-state" id="emptyBookmarks">
+          <div class="grid" id="bookmarksGrid"></div>
+          <div class="empty" id="emptyBookmarks">
             <i class="fas fa-bookmark"></i>
-            <h3>لا توجد موارد محفوظة</h3>
-            <p>اضغط على أيقونة النجمة لحفظ الموارد المفضلة</p>
+            <p>لا توجد موارد محفوظة بعد</p>
           </div>
         </section>
 
-        <!-- Progress Section -->
         <section class="section" id="progress">
           <div class="section-header">
-            <div class="section-title">
-              <i class="fas fa-chart-line"></i>
-              <h2>تقدمك التعليمي</h2>
-            </div>
+            <h2><i class="fas fa-chart-line"></i> تقدمك</h2>
           </div>
           <div class="progress-dashboard">
-            <div class="progress-ring-container">
-              <div class="progress-ring" id="mainProgressRing">
-                <svg viewBox="0 0 200 200">
-                  <defs>
-                    <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" style="stop-color:#6366f1"/>
-                      <stop offset="100%" style="stop-color:#ec4899"/>
-                    </linearGradient>
-                  </defs>
-                  <circle class="progress-ring-bg" cx="100" cy="100" r="85"/>
-                  <circle class="progress-ring-fill" cx="100" cy="100" r="85" id="mainProgressCircle" stroke="url(#progressGradient)"/>
-                </svg>
-                <div class="progress-ring-text">
-                  <span class="progress-percent" id="mainProgressPercent">0%</span>
-                  <span class="progress-label">التقدم العام</span>
-                </div>
+            <div class="progress-ring-wrap">
+              <svg viewBox="0 0 200 200" class="progress-svg">
+                <circle cx="100" cy="100" r="85" class="progress-bg"/>
+                <circle cx="100" cy="100" r="85" class="progress-fill" id="mainCircle"/>
+              </svg>
+              <div class="progress-center">
+                <span class="progress-pct" id="mainPct">0%</span>
+                <span class="progress-lbl">التقدم العام</span>
               </div>
             </div>
-            
             <div class="progress-cards">
-              <div class="progress-card">
-                <div class="progress-card-header">
-                  <i class="fas fa-laptop-code"></i>
-                  <span>CS-50</span>
-                </div>
-                <div class="progress-bar">
-                  <div class="progress-fill" id="cs50Progress" style="width: 0%"></div>
-                </div>
-                <span class="progress-text" id="cs50ProgressText">0%</span>
-              </div>
-              <div class="progress-card">
-                <div class="progress-card-header">
-                  <i class="fas fa-square-root-variable"></i>
-                  <span>الرياضيات</span>
-                </div>
-                <div class="progress-bar">
-                  <div class="progress-fill" id="mathProgress" style="width: 0%"></div>
-                </div>
-                <span class="progress-text" id="mathProgressText">0%</span>
-              </div>
-              <div class="progress-card">
-                <div class="progress-card-header">
-                  <i class="fas fa-atom"></i>
-                  <span>الفيزياء</span>
-                </div>
-                <div class="progress-bar">
-                  <div class="progress-fill" id="physicsProgress" style="width: 0%"></div>
-                </div>
-                <span class="progress-text" id="physicsProgressText">0%</span>
-              </div>
-              <div class="progress-card">
-                <div class="progress-card-header">
-                  <i class="fas fa-flask"></i>
-                  <span>الكيمياء</span>
-                </div>
-                <div class="progress-bar">
-                  <div class="progress-fill" id="chemistryProgress" style="width: 0%"></div>
-                </div>
-                <span class="progress-text" id="chemistryProgressText">0%</span>
-              </div>
-              <div class="progress-card">
-                <div class="progress-card-header">
-                  <i class="fas fa-chart-pie"></i>
-                  <span>الإحصاء</span>
-                </div>
-                <div class="progress-bar">
-                  <div class="progress-fill" id="statsProgress" style="width: 0%"></div>
-                </div>
-                <span class="progress-text" id="statsProgressText">0%</span>
-              </div>
-              <div class="progress-card">
-                <div class="progress-card-header">
-                  <i class="fas fa-dna"></i>
-                  <span>البيولوجيا</span>
-                </div>
-                <div class="progress-bar">
-                  <div class="progress-fill" id="bioProgress" style="width: 0%"></div>
-                </div>
-                <span class="progress-text" id="bioProgressText">0%</span>
-              </div>
+              <div class="p-card"><div class="p-card-head"><i class="fas fa-laptop-code"></i> CS-50</div><div class="p-bar"><div class="p-fill" id="cs50Bar"></div></div><span class="p-text" id="cs50Pct">0%</span></div>
+              <div class="p-card"><div class="p-card-head"><i class="fas fa-square-root-variable"></i> الرياضيات</div><div class="p-bar"><div class="p-fill" id="mathBar"></div></div><span class="p-text" id="mathPct">0%</span></div>
+              <div class="p-card"><div class="p-card-head"><i class="fas fa-atom"></i> الفيزياء</div><div class="p-bar"><div class="p-fill" id="physicsBar"></div></div><span class="p-text" id="physicsPct">0%</span></div>
+              <div class="p-card"><div class="p-card-head"><i class="fas fa-flask"></i> الكيمياء</div><div class="p-bar"><div class="p-fill" id="chemistryBar"></div></div><span class="p-text" id="chemistryPct">0%</span></div>
+              <div class="p-card"><div class="p-card-head"><i class="fas fa-chart-pie"></i> الإحصاء</div><div class="p-bar"><div class="p-fill" id="statisticsBar"></div></div><span class="p-text" id="statisticsPct">0%</span></div>
+              <div class="p-card"><div class="p-card-head"><i class="fas fa-dna"></i> البيولوجيا</div><div class="p-bar"><div class="p-fill" id="biologyBar"></div></div><span class="p-text" id="biologyPct">0%</span></div>
             </div>
           </div>
         </section>
@@ -393,45 +265,41 @@
     </main>
   </div>
 
-  <!-- Add Resource Modal -->
-  <div class="modal" id="addResourceModal">
-    <div class="modal-overlay"></div>
-    <div class="modal-content glass">
-      <div class="modal-header">
+  <!-- Add Modal -->
+  <div class="modal" id="addModal">
+    <div class="modal-overlay" data-close></div>
+    <div class="modal-box">
+      <div class="modal-head">
         <h3><i class="fas fa-plus-circle"></i> إضافة مورد جديد</h3>
-        <button class="close-btn" id="closeModal">
-          <i class="fas fa-times"></i>
-        </button>
+        <button class="close-btn" data-close><i class="fas fa-times"></i></button>
       </div>
-      <form id="resourceForm">
-        <div class="form-row">
-          <div class="form-group">
-            <label><i class="fas fa-heading"></i> العنوان</label>
-            <input type="text" id="resourceTitle" required placeholder="أدخل عنوان المورد">
-          </div>
+      <form id="addForm">
+        <div class="form-group">
+          <label>العنوان</label>
+          <input type="text" id="fTitle" required placeholder="أدخل عنوان المورد">
         </div>
         <div class="form-group">
-          <label><i class="fas fa-align-right"></i> الوصف</label>
-          <textarea id="resourceDescription" rows="3" placeholder="أدخل وصف المورد"></textarea>
+          <label>الوصف</label>
+          <textarea id="fDesc" rows="2" placeholder="وصف مختصر"></textarea>
         </div>
         <div class="form-group">
-          <label><i class="fas fa-link"></i> الرابط</label>
-          <input type="url" id="resourceUrl" placeholder="https://example.com">
+          <label>الرابط</label>
+          <input type="url" id="fUrl" placeholder="https://...">
         </div>
         <div class="form-row">
           <div class="form-group">
-            <label><i class="fas fa-tag"></i> النوع</label>
-            <select id="resourceType">
-              <option value="video"><i class="fas fa-play"></i> فيديو</option>
-              <option value="book"><i class="fas fa-book"></i> كتاب</option>
-              <option value="summary"><i class="fas fa-file-alt"></i> تلخيص</option>
-              <option value="exercise"><i class="fas fa-tasks"></i> تمرين</option>
-              <option value="link"><i class="fas fa-external-link-alt"></i> رابط</option>
+            <label>النوع</label>
+            <select id="fType">
+              <option value="video">فيديو</option>
+              <option value="book">كتاب</option>
+              <option value="summary">تلخيص</option>
+              <option value="exercise">تمرين</option>
+              <option value="link">رابط</option>
             </select>
           </div>
           <div class="form-group">
-            <label><i class="fas fa-folder"></i> القسم</label>
-            <select id="resourceCategory">
+            <label>القسم</label>
+            <select id="fCat">
               <option value="cs50">CS-50</option>
               <option value="math">رياضيات</option>
               <option value="physics">فيزياء</option>
@@ -441,41 +309,32 @@
             </select>
           </div>
         </div>
-        <div class="form-group">
-          <label><i class="fas fa-tags"></i> التخصص</label>
-          <input type="text" id="resourceSubcategory" placeholder="مثال: جبر، ميكانيكا، etc.">
-        </div>
-        <button type="submit" class="submit-btn">
-          <i class="fas fa-plus"></i> إضافة المورد
+        <button type="submit" class="btn btn-primary btn-full">
+          <i class="fas fa-plus"></i> إضافة
         </button>
       </form>
     </div>
   </div>
 
-  <!-- Resource Detail Modal -->
-  <div class="modal" id="resourceDetailModal">
-    <div class="modal-overlay"></div>
-    <div class="modal-content glass large">
-      <div class="modal-header">
+  <!-- Detail Modal -->
+  <div class="modal" id="detailModal">
+    <div class="modal-overlay" data-close></div>
+    <div class="modal-box modal-lg">
+      <div class="modal-head">
         <h3 id="detailTitle"><i class="fas fa-info-circle"></i> تفاصيل المورد</h3>
-        <button class="close-btn" id="closeDetail">
-          <i class="fas fa-times"></i>
-        </button>
+        <button class="close-btn" data-close><i class="fas fa-times"></i></button>
       </div>
-      <div class="detail-content" id="detailContent">
-        <!-- Dynamic content -->
-      </div>
+      <div id="detailBody"></div>
     </div>
   </div>
 
-  <!-- Toast Notification -->
+  <!-- Toast -->
   <div class="toast" id="toast">
     <i class="fas fa-check-circle"></i>
-    <span>تم الحفظ بنجاح</span>
+    <span id="toastMsg">تم الحفظ</span>
   </div>
 
   <script src="resources-data.js"></script>
   <script src="renderer.js"></script>
 </body>
 </html>
-
