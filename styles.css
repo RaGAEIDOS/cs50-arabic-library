@@ -418,6 +418,42 @@ a:hover { color: var(--gold-bright); }
 .filter-btn.active { background: var(--gold); color: var(--bg); border-color: var(--gold); font-weight: 600; }
 .filter-btn i { margin-left: 4px; }
 
+.diff-filters { gap: 4px; }
+
+.diff-btn {
+  padding: 5px 12px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-dim);
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.diff-btn:hover { border-color: var(--gold-dim); color: var(--text); }
+.diff-btn.active { border-color: var(--gold); color: var(--bg); font-weight: 600; }
+.diff-btn[data-difficulty="easy"].active { background: #27ae60; border-color: #27ae60; }
+.diff-btn[data-difficulty="medium"].active { background: #e67e22; border-color: #e67e22; }
+.diff-btn[data-difficulty="hard"].active { background: #c0392b; border-color: #c0392b; }
+.diff-btn i { margin-left: 3px; font-size: 0.7rem; }
+
+.diff-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  font-weight: 500;
+}
+
+.diff-easy { background: rgba(39,174,96,0.15); color: #27ae60; }
+.diff-medium { background: rgba(230,126,34,0.15); color: #e67e22; }
+.diff-hard { background: rgba(192,57,43,0.15); color: #c0392b; }
+
 /* ============ RESOURCE GRID ============ */
 .grid {
   display: grid;
